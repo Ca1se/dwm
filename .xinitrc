@@ -27,9 +27,9 @@ fcitx &
 compton -CGb &
 
 total_mem=$(LANG=C free -m | grep Mem | awk '{print $2}')
-while xsetroot -name " | Tem.$(sensors | grep Package | awk '{print $4}') | UsedMem.$[$total_mem - $(LANG=C free -m | grep Mem | awk '{print $7}')] MB / $total_mem MB | Bat.$(acpi | awk '{ print $3, $4 }' | tr -d ',') | Vol.$(amixer get Master| tail -n 1 | awk '{print $5}' | tr -d '[]') | $(date '+%Y-%m-%d %H:%M %A')"
+while xsetroot -name " | Tem.$(sensors | grep Package | awk '{print $4}') | UsedMem.$[$total_mem - $(LANG=C free -m | grep Mem | awk '{print $7}')] MB / $total_mem MB | Bat.$(acpi | awk '{ print $4 }' | tr -d ',') | Vol.$(amixer get Master| tail -n 1 | awk '{print $5}' | tr -d '[]') | $(date '+%Y-%m-%d %H:%M %A')"
 do
-	sleep 5
+	sleep 10
 done &
 
 exec dwm
